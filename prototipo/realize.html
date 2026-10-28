@@ -50,22 +50,8 @@
     --step-4: clamp(2.1rem, 1.6rem + 2.4vw, 3.5rem);
     --ease: cubic-bezier(.2, .7, .2, 1);
   }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #0F0E0C; --surface: #17140F; --surface-2: #1F1B15; --line: #2E281E;
-      --ink: #F2EBDD; --muted: #B3A893; --gold-ink: #E2C27E; --gold-soft: #2A2418;
-      --night: #0A0908; --night-2: #141210; --header-bg: #0F0E0C; --night-line: #2D271D; --on-night: #F5EFE3; --on-night-muted: #BDB29C; --on-night-accent: #E6C77F; --pearl-sheen: linear-gradient(135deg, #1A1712 0%, #0F0E0C 100%); --gold-grad: linear-gradient(135deg, #F1D99A 0%, #C9A04A 45%, #9C7428 100%);
-      --scrim: rgba(0, 0, 0, .65); --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 30px rgba(0,0,0,.4);
-      color-scheme: dark;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #0F0E0C; --surface: #17140F; --surface-2: #1F1B15; --line: #2E281E;
-    --ink: #F2EBDD; --muted: #B3A893; --gold-ink: #E2C27E; --gold-soft: #2A2418;
-    --night: #0A0908; --night-2: #141210; --header-bg: #0F0E0C; --night-line: #2D271D; --on-night: #F5EFE3; --on-night-muted: #BDB29C; --on-night-accent: #E6C77F; --pearl-sheen: linear-gradient(135deg, #1A1712 0%, #0F0E0C 100%); --gold-grad: linear-gradient(135deg, #F1D99A 0%, #C9A04A 45%, #9C7428 100%);
-    --scrim: rgba(0, 0, 0, .65); --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 30px rgba(0,0,0,.4);
-    color-scheme: dark;
-  }
+  /* Identidade fixa em branco perolado e dourado, mesmo com o aparelho no modo escuro. */
+  :root, :root[data-theme="dark"] { color-scheme: light; }
 }
 
 @layer reset {
