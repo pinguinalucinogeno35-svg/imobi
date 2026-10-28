@@ -526,7 +526,7 @@
 
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
-<div class="proto-bar"><strong>Protótipo</strong> · marca provisória e imóveis de exemplo, sem valor comercial</div>
+<div class="proto-bar"><strong>Protótipo</strong> · marca provisória, imóveis de exemplo e fotos ilustrativas</div>
 
 <header class="site-header">
   <div class="wrap">
@@ -896,6 +896,435 @@ function cena(p, n) {
 }
 const GAL_LEGENDAS = ["Fachada", "Sala", "Cozinha", "Dormitório", "Área de lazer"];
 
+/* Fotos reais (banco gratuito Pexels, uso comercial liberado). São ilustrativas: não mostram os imóveis anunciados.
+   Se a foto não carregar, a página troca pela ilustração acima. */
+const FOTOS = {
+ "predio": [
+  {
+   "src": "https://images.pexels.com/photos/18153132/pexels-photo-18153132/free-photo-of-apartments-with-balconies.jpeg",
+   "legenda": "Fachada com varandas de vidro",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/16110999/pexels-photo-16110999/free-photo-of-balconies-of-a-modern-apartment-building.jpeg",
+   "legenda": "Edifício contemporâneo com sacadas envidraçadas",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/26690862/pexels-photo-26690862/free-photo-of-modern-apartments-with-balconies.jpeg",
+   "legenda": "Prédio residencial com sacadas",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/21071043/pexels-photo-21071043/free-photo-of-balconies-of-modern-residential-building.jpeg",
+   "legenda": "Fachada geométrica com varandas",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/13812522/pexels-photo-13812522.jpeg",
+   "legenda": "Torre residencial com varandas de vidro",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/11631278/pexels-photo-11631278.jpeg",
+   "legenda": "Fachada em concreto aparente",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/33528643/pexels-photo-33528643/free-photo-of-modern-glass-facade-of-urban-residential-building.jpeg",
+   "legenda": "Edifício de alto padrão com pele de vidro",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/11643330/pexels-photo-11643330.jpeg",
+   "legenda": "Conjunto residencial com sacadas",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/17719719/pexels-photo-17719719/free-photo-of-a-tall-building-with-balconies-and-windows.jpeg",
+   "legenda": "Prédio com fachada arquitetônica marcante",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/31656173/pexels-photo-31656173/free-photo-of-modern-residential-buildings-with-urban-street-view.jpeg",
+   "legenda": "Edifícios residenciais em área urbana",
+   "credito": "Pexels"
+  }
+ ],
+ "predio-praia": [
+  {
+   "src": "https://images.pexels.com/photos/35683831/pexels-photo-35683831/free-photo-of-modern-apartment-building-by-tropical-beach.jpeg",
+   "legenda": "Edifício próximo à praia",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/33724786/pexels-photo-33724786/free-photo-of-modern-beachfront-apartments-with-palm-trees.jpeg",
+   "legenda": "Prédios de frente para o mar",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/35683806/pexels-photo-35683806/free-photo-of-beachfront-apartments-under-clear-blue-sky.jpeg",
+   "legenda": "Orla com edifícios residenciais",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/31643637/pexels-photo-31643637/free-photo-of-modern-beachfront-apartments-in-praia-grande.jpeg",
+   "legenda": "Apartamentos pé na areia",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/36201597/pexels-photo-36201597/free-photo-of-coastal-high-rise-building-with-blue-sky.jpeg",
+   "legenda": "Torre residencial à beira-mar",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/39482983/pexels-photo-39482983/free-photo-of-seaside-high-rise-buildings-in-punta-del-este.jpeg",
+   "legenda": "Edifícios altos com vista para o oceano",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/36806778/pexels-photo-36806778/free-photo-of-coastal-apartment-building-in-torrevieja.jpeg",
+   "legenda": "Prédio residencial junto ao mar",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/32642371/pexels-photo-32642371/free-photo-of-coastal-luxury-apartments-overlooking-ocean-view.jpeg",
+   "legenda": "Apartamentos com vista para o mar",
+   "credito": "Pexels"
+  }
+ ],
+ "casa": [
+  {
+   "src": "https://images.pexels.com/photos/19344325/pexels-photo-19344325/free-photo-of-exterior-of-a-building.jpeg",
+   "legenda": "Casa moderna com janelas amplas",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/1974596/pexels-photo-1974596.jpeg",
+   "legenda": "Casa contemporânea com jardim e garagem",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/7031604/pexels-photo-7031604.jpeg",
+   "legenda": "Casa com portas de vidro e gramado",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/15422346/pexels-photo-15422346/free-photo-of-geometrical-house-seen-through-fence.jpeg",
+   "legenda": "Fachada contemporânea com paisagismo",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/323781/pexels-photo-323781.jpeg",
+   "legenda": "Casa em pedra e madeira",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/7031581/pexels-photo-7031581.jpeg",
+   "legenda": "Casa com jardim e árvores",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/13041129/pexels-photo-13041129.jpeg",
+   "legenda": "Casa minimalista cercada de verde",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/30580640/pexels-photo-30580640/free-photo-of-modern-twin-houses-with-symmetrical-design.jpeg",
+   "legenda": "Casas geminadas modernas",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/19516616/pexels-photo-19516616/free-photo-of-hedge-by-house-wall.jpeg",
+   "legenda": "Sobrado em tijolos aparentes",
+   "credito": "Pexels"
+  }
+ ],
+ "terreno": [
+  {
+   "src": "https://images.pexels.com/photos/11201060/pexels-photo-11201060.jpeg",
+   "legenda": "Vista aérea de loteamento residencial",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/11597090/pexels-photo-11597090.jpeg",
+   "legenda": "Vista aérea de bairro com terrenos e jardins",
+   "credito": "Pexels"
+  }
+ ],
+ "comercial": [
+  {
+   "src": "https://images.pexels.com/photos/22711217/pexels-photo-22711217/free-photo-of-armchair-and-monitor-on-table.jpeg",
+   "legenda": "Sala com mesa de trabalho junto à janela",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/13068366/pexels-photo-13068366.jpeg",
+   "legenda": "Escritório moderno com iluminação pendente",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/7750129/pexels-photo-7750129.jpeg",
+   "legenda": "Sala comercial ampla e iluminada",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/3747070/pexels-photo-3747070.jpeg",
+   "legenda": "Estação de trabalho com luz natural",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/7534226/pexels-photo-7534226.jpeg",
+   "legenda": "Escritório em tons naturais",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/5511098/pexels-photo-5511098.jpeg",
+   "legenda": "Escritório com planta aberta",
+   "credito": "Pexels"
+  }
+ ],
+ "sala": [
+  {
+   "src": "https://images.pexels.com/photos/276746/pexels-photo-276746.jpeg",
+   "legenda": "Sala de estar iluminada",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/5793547/pexels-photo-5793547.jpeg",
+   "legenda": "Sala de estar com luz natural",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/35419464/pexels-photo-35419464/free-photo-of-modern-minimalist-living-room-interior-with-neutral-tones.jpeg",
+   "legenda": "Sala minimalista em tons neutros",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/36816986/pexels-photo-36816986/free-photo-of-bright-modern-living-room-with-hardwood-floor.jpeg",
+   "legenda": "Sala com sacada e piso de madeira",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/31737858/pexels-photo-31737858/free-photo-of-modern-luxury-living-room-with-elegant-lighting.jpeg",
+   "legenda": "Sala com janelas do piso ao teto",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/34688219/pexels-photo-34688219/free-photo-of-modern-living-room-with-luxurious-decor.jpeg",
+   "legenda": "Sala de estar ampla",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/280239/pexels-photo-280239.jpeg",
+   "legenda": "Sala integrada à cozinha com vista para o jardim",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/8089172/pexels-photo-8089172.jpeg",
+   "legenda": "Sala integrada com cozinha aberta",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/39829283/pexels-photo-39829283/free-photo-of-elegant-modern-living-room-interior-design.jpeg",
+   "legenda": "Sala de estar sofisticada",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/34887637/pexels-photo-34887637/free-photo-of-modern-luxury-dining-and-living-area-interior.jpeg",
+   "legenda": "Sala de jantar e estar integradas",
+   "credito": "Pexels"
+  }
+ ],
+ "cozinha": [
+  {
+   "src": "https://images.pexels.com/photos/7166645/pexels-photo-7166645.jpeg",
+   "legenda": "Cozinha planejada com mesa redonda",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/7045356/pexels-photo-7045356.jpeg",
+   "legenda": "Cozinha com armários em madeira",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/18033166/pexels-photo-18033166/free-photo-of-countertop-of-modern-kitchen.jpeg",
+   "legenda": "Cozinha com bancada e janelas amplas",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/13009887/pexels-photo-13009887.jpeg",
+   "legenda": "Cozinha clara com armários brancos",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/7614540/pexels-photo-7614540.jpeg",
+   "legenda": "Cozinha com eletrodomésticos embutidos",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/19966809/pexels-photo-19966809/free-photo-of-white-furniture-in-modern-kitchen.jpeg",
+   "legenda": "Cozinha minimalista branca",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/15409513/pexels-photo-15409513/free-photo-of-modern-kitchen-design.jpeg",
+   "legenda": "Cozinha com iluminação planejada",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/30580858/pexels-photo-30580858/free-photo-of-modern-wooden-kitchen-interior-with-island.jpeg",
+   "legenda": "Cozinha com ilha central",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/6527057/pexels-photo-6527057.jpeg",
+   "legenda": "Cozinha com móveis laqueados",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/10758468/pexels-photo-10758468.jpeg",
+   "legenda": "Cozinha em estilo escandinavo",
+   "credito": "Pexels"
+  }
+ ],
+ "quarto": [
+  {
+   "src": "https://images.pexels.com/photos/6782479/pexels-photo-6782479.jpeg",
+   "legenda": "Quarto claro com escrivaninha",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/9899871/pexels-photo-9899871.jpeg",
+   "legenda": "Quarto com luz natural",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/8135505/pexels-photo-8135505.jpeg",
+   "legenda": "Quarto moderno aconchegante",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/34574606/pexels-photo-34574606/free-photo-of-elegant-bedroom-interior-with-blue-accents-and-natural-light.jpeg",
+   "legenda": "Suíte com cabeceira estofada e piso de madeira",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/3754698/pexels-photo-3754698.jpeg",
+   "legenda": "Quarto minimalista",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/13043955/pexels-photo-13043955.jpeg",
+   "legenda": "Quarto com escrivaninha e parede cinza",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/32331030/pexels-photo-32331030/free-photo-of-modern-minimalist-bedroom-wardrobe-design.png",
+   "legenda": "Quarto com armário planejado",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/30767888/pexels-photo-30767888/free-photo-of-cozy-modern-bedroom-in-santa-teresa-brazil.jpeg",
+   "legenda": "Quarto em tons quentes",
+   "credito": "Pexels"
+  }
+ ],
+ "piscina": [
+  {
+   "src": "https://images.pexels.com/photos/28539420/pexels-photo-28539420/free-photo-of-modern-high-rise-apartments-with-pool-and-garden.jpeg",
+   "legenda": "Piscina do condomínio com jardim",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/33688144/pexels-photo-33688144/free-photo-of-modern-condominium-with-tropical-poolside-view.jpeg",
+   "legenda": "Piscina com paisagismo tropical",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/39231881/pexels-photo-39231881/free-photo-of-luxury-apartment-complex-with-outdoor-pool-in-sugar-land.jpeg",
+   "legenda": "Área de piscina do condomínio",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/36551327/pexels-photo-36551327/free-photo-of-aerial-view-of-modern-high-rise-buildings-at-dusk.jpeg",
+   "legenda": "Piscina entre torres residenciais",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/30707660/pexels-photo-30707660/free-photo-of-luxury-dubai-apartment-complex-with-pool-view.jpeg",
+   "legenda": "Piscina de condomínio vista do alto",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/29268172/pexels-photo-29268172/free-photo-of-modern-urban-living-with-poolside-view.jpeg",
+   "legenda": "Piscina com guarda-corpo de vidro",
+   "credito": "Pexels"
+  }
+ ],
+ "jardim": [
+  {
+   "src": "https://images.pexels.com/photos/34438781/pexels-photo-34438781/free-photo-of-aerial-view-of-modern-white-house-with-garden.jpeg",
+   "legenda": "Casa com jardim e terraço",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/7061676/pexels-photo-7061676.jpeg",
+   "legenda": "Terraço com vista para o jardim",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/17158688/pexels-photo-17158688/free-photo-of-house-with-terrace.jpeg",
+   "legenda": "Gramado amplo em frente à casa",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/7587467/pexels-photo-7587467.jpeg",
+   "legenda": "Casa com jardim e área verde",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/8583822/pexels-photo-8583822.jpeg",
+   "legenda": "Terraço com jardim bem cuidado",
+   "credito": "Pexels"
+  },
+  {
+   "src": "https://images.pexels.com/photos/38852707/pexels-photo-38852707/free-photo-of-sunny-backyard-with-garden-and-house-exterior.jpeg",
+   "legenda": "Casa com jardim florido",
+   "credito": "Pexels"
+  }
+ ]
+};
+function categoriaFoto(p, n) {
+  if (n === 0) {
+    if (p.tipo === "terreno") return "terreno";
+    if (p.tipo === "sala") return "comercial";
+    if (["casa", "sobrado", "casa-condominio"].includes(p.tipo)) return "casa";
+    return p.cidadeId === "balneario-camboriu-sc" && FOTOS["predio-praia"].length ? "predio-praia" : "predio";
+  }
+  const k = ["sala", "cozinha", "quarto", "lazer"][(n - 1) % 4];
+  if (k === "lazer") return temPiscina(p) ? "piscina" : "jardim";
+  if (p.tipo === "sala" && k !== "sala") return "comercial";
+  return k;
+}
+function fotoInfo(p, n) {
+  const lista = FOTOS[categoriaFoto(p, n)];
+  return lista && lista.length ? lista[(p.seed + n * 7) % lista.length] : null;
+}
+function foto(p, n, w = 800) {
+  const f = fotoInfo(p, n);
+  return f ? `${f.src}?auto=compress&cs=tinysrgb&w=${w}` : cena(p, n);
+}
+function legenda(p, n) { const f = fotoInfo(p, n); return f ? f.legenda : GAL_LEGENDAS[n]; }
+// Foto que não carrega (sem rede, bloqueio) volta para a ilustração do mesmo ambiente.
+document.addEventListener("error", (e) => {
+  const img = e.target;
+  if (!(img instanceof HTMLImageElement) || !img.dataset.alt) return;
+  const [slug, n] = img.dataset.alt.split(":");
+  const p = POR_CODIGO[slug];
+  if (p) { delete img.dataset.alt; img.src = cena(p, Number(n)); }
+}, true);
+
 /* ---------- Estado da busca ---------- */
 const PADRAO = { fin: "venda", lanc: false, cidade: "curitiba-pr", bairros: [], tipos: [], pmin: null, pmax: null, condMax: null, amin: null, amax: null, quartos: 0, suites: 0, banheiros: 0, vagas: 0, piscina: false, amenI: [], amenC: [], outros: [], ordem: "relevancia", vista: "lista", limite: 12 };
 let S = Object.assign(structuredClone(PADRAO), store.get("busca", {}));
@@ -962,7 +1391,7 @@ function cardHTML(p) {
   const fees = p.condominio ? `Cond. ${BRL.format(p.condominio)}` : "";
   return `<article class="card">
     <div class="card-media">
-      <img src="${cena(p, 0)}" alt="Ilustração da fachada: ${esc(TIPO[p.tipo].nome.toLowerCase())} em ${esc(b.nome)}" width="800" height="600" loading="lazy" decoding="async">
+      <img src="${foto(p, 0)}" data-alt="${p.slug}:0" alt="${esc(legenda(p, 0))}" width="800" height="600" loading="lazy" decoding="async">
       <div class="card-tags">${tags.join("")}</div>
       <button class="fav-btn" type="button" data-fav="${p.slug}" aria-pressed="${fav}" aria-label="${fav ? "Remover dos favoritos" : "Salvar nos favoritos"}">${icon("heart")}</button>
     </div>
@@ -1480,9 +1909,9 @@ function viewImovel(slug) {
       <span aria-current="page">${p.codigo}</span>
     </nav>
     <div class="gallery">
-      ${fotos.map((n, k) => `<button class="g-item ${k === 0 ? "g-main" : ""}" type="button" data-foto="${k}" aria-label="Ampliar foto ${k + 1} de ${fotos.length}: ${GAL_LEGENDAS[n]}">
-        <img src="${cena(p, n)}" alt="Ilustração: ${GAL_LEGENDAS[n].toLowerCase()}" width="800" height="600" ${k ? 'loading="lazy"' : 'fetchpriority="high"'}>
-        ${k === 0 ? `<span class="g-caption">Imagens ilustrativas</span><span class="g-count">${icon("grid", "icon icon-sm")}${fotos.length} fotos</span>` : ""}</button>`).join("")}
+      ${fotos.map((n, k) => `<button class="g-item ${k === 0 ? "g-main" : ""}" type="button" data-foto="${k}" aria-label="Ampliar foto ${k + 1} de ${fotos.length}: ${esc(legenda(p, n))}">
+        <img src="${foto(p, n, k ? 800 : 1400)}" data-alt="${p.slug}:${n}" alt="${esc(legenda(p, n))}" width="800" height="600" ${k ? 'loading="lazy"' : 'fetchpriority="high"'}>
+        ${k === 0 ? `<span class="g-caption">Fotos ilustrativas · Pexels</span><span class="g-count">${icon("grid", "icon icon-sm")}${fotos.length} fotos</span>` : ""}</button>`).join("")}
     </div>
     <div class="detail">
       <div class="detail-main">
@@ -1567,9 +1996,10 @@ function abrirGaleria(p, fotos, i) {
   const d = $("#dlg-galeria");
   const pintar = () => {
     const n = galAtual.fotos[galAtual.i];
-    $("#gal-img").src = cena(p, n); $("#gal-img").alt = "Ilustração: " + GAL_LEGENDAS[n].toLowerCase();
-    $("#gal-title").textContent = `${GAL_LEGENDAS[n]} · ${p.codigo}`;
-    $("#gal-count").textContent = `${galAtual.i + 1} de ${galAtual.fotos.length} · imagens ilustrativas`;
+    $("#gal-img").dataset.alt = `${p.slug}:${n}`;
+    $("#gal-img").src = foto(p, n, 1600); $("#gal-img").alt = legenda(p, n);
+    $("#gal-title").textContent = `${legenda(p, n)} · ${p.codigo}`;
+    $("#gal-count").textContent = `${galAtual.i + 1} de ${galAtual.fotos.length} · fotos ilustrativas (Pexels)`;
   };
   galAtual.pintar = pintar; pintar(); d.showModal();
 }
